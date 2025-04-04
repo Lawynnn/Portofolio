@@ -1,24 +1,56 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*[data-pattern="grid"] {
+    --color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    --size: 20px 20px;
+    background-image: linear-gradient(
+            to right,
+            var(--color) 1px,
+            transparent 1px
+        ),
+        linear-gradient(to bottom, var(--color) 1px, transparent 1px);
+    background-size: var(--size);
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*[data-pattern="dots"] {
+    --color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    --size: 10px 10px;
+    background-image: radial-gradient(circle, var(--color) 1px, transparent 1px);
+    background-size: var(--size);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*[data-pattern="stripes"] {
+    --color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    --deg: -45deg;
+    --size: 8px 8px;
+    background-image: linear-gradient(
+        var(--deg),
+        var(--color) 6.25%,
+        transparent 6.25%,
+        transparent 50%,
+        var(--color) 50%,
+        var(--color) 56.25%,
+        transparent 56.25%,
+        transparent 100%
+    );
+    background-size: var(--size);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-lexend);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
 }
