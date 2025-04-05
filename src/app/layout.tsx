@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/themeContext";
 import Footer from "@/components/footer";
 import { ImagePreviewProvider } from "@/context/imagePreviewContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -35,6 +36,7 @@ export default function RootLayout({
             <body
                 className={`${poppins.variable} ${lexend.variable} antialiased bg-zinc-950 text-white`}
             >
+                <SpeedInsights />
                 <ThemeProvider>
                     <ImagePreviewProvider>
                         <main className="min-w-full min-h-screen">
