@@ -1,14 +1,10 @@
 "use client";
+import { useLanguage } from "@/context/languageContext";
 import React, { CSSProperties } from "react";
 import { useInView } from "react-intersection-observer";
 
-type Card = {
-    title: string;
-    description: string;
-};
-
-export default function Cards({ cardsData }: { cardsData: Card[] }) {
-
+export default function Cards({ cardsData }: { cardsData: [string, string][] }) {
+    const { translate } = useLanguage();
     return (
         <div
             className="flex flex-row flex-wrap justify-center items-stretch gap-4 p-5"
@@ -36,9 +32,9 @@ export default function Cards({ cardsData }: { cardsData: Card[] }) {
                     }
                 >
                     <h1 className="text-white text-xl font-bold">
-                        {card.title}
+                        {translate(card[0])}
                     </h1>
-                    <p className="text-zinc-300">{card.description}</p>
+                    <p className="text-zinc-300">{translate(card[1])}</p>
                 </div>
             )
             })}

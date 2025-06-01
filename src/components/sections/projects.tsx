@@ -2,8 +2,10 @@
 
 import React from "react";
 import ProjectCard, { Langs } from "../projectCard";
+import { useLanguage } from "@/context/languageContext";
 
 export default function ProjectsSection() {
+    const {translate} = useLanguage();
     return (
         <div
             className="w-full min-h-screen relative border-t-2 border-dashed border-zinc-700 flex flex-col items-center bg-zinc-950 pt-10 gap-10"
@@ -11,11 +13,11 @@ export default function ProjectsSection() {
         >
             <div className="absolute w-full h-full bg-[url('/assets/background_2.png')] bg-no-repeat bg-center top-0 left-0 z-[5] pointer-events-none"></div>
             <div className="flex flex-col items-center">
-                <h1 className="text-white font-black uppercase opacity-40 text-7xl text-center">
-                    What I build
+                <h1 className="text-white font-black uppercase opacity-40 text-7xl text-center max-sm:text-4xl">
+                    {translate("projects")}
                 </h1>
                 <span className="text-zinc-300 text-lg font-bold text-center">
-                    Here is some of my projects
+                    {translate("projects_desc")}
                 </span>
             </div>
             <div className="w-full h-full flex flex-row flex-wrap justify-center gap-10 max-w-[1200px]">
@@ -26,7 +28,7 @@ export default function ProjectsSection() {
                         image="/assets/oogo.png"
                         link="https://github.com/Lawynnn/oogo-backend"
                         description={
-                            "A website for ride sharing, where you can find a ride or offer one"
+                            translate("p_oogo_desc")
                         }
                         languages={["nextjs", "nodejs", "mongodb"]}
                         className="bg-red-950 border-red-800 col-span-2 row-span-2"
@@ -37,7 +39,7 @@ export default function ProjectsSection() {
                         image="/assets/Helios.png"
                         link={"https://github.com/Lawynnn/HeliosRemake"}
                         description={
-                            "A website for my university that helps teachers with marks and homeworks"
+                            translate("p_helios_desc")
                         }
                         languages={["html", "css", "js", "mongodb"]}
                         className="bg-blue-950 row-span-2 col-start-3"
@@ -47,7 +49,7 @@ export default function ProjectsSection() {
                         idx={2}
                         title="Discurp"
                         description={
-                            "An desktop app that can be used to set a custom status on discord, with a custom message and a custom image"
+                            translate("p_discurp_desc")
                         }
                         languages={["html", "css", "electronjs", "nodejs"]}
                         className="bg-blue-950 row-span-3 row-start-3"
@@ -58,7 +60,7 @@ export default function ProjectsSection() {
                         title="LF Compiler"
                         link="https://github.com/Lawynnn/LF"
                         description={
-                            "A compiler for a custom language I made, with a custom syntax and a custom compiler, designed for easy discord bot creation"
+                            translate("p_lf_compiler_desc")
                         }
                         languages={["nodejs", "discord.js"]}
                         className="bg-blue-950 col-span-2 row-span-2 row-start-3"
@@ -68,7 +70,7 @@ export default function ProjectsSection() {
                         title="Type Racer"
                         link="/type-racer"
                         description={
-                            "An multiplayer type racing game, where you can play with your friends to see who types faster"
+                            translate("p_type_racer_desc")
                         }
                         languages={["html", "css", "js", "mongodb", "nodejs"]}
                         className="bg-blue-950 col-span-2 col-start-2 row-start-5"

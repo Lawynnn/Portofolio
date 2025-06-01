@@ -3,31 +3,17 @@
 import React from "react";
 import ArrowButton from "../arrow";
 import Cards from "../cards";
+import { useLanguage } from "@/context/languageContext";
 
 const cardsData = [
-    {
-        title: "Passion for Coding",
-        description:
-            "I started coding at 13 and have been hooked ever since. From Python to C++, C#, and PHP, I explored various technologies before finding my true passion in frontend development with Node.js.",
-    },
-    {
-        title: "Self-Taught Journey",
-        description:
-            "I love learning on my own, always seeking to improve by studying how others write code and refining my own approach.",
-    },
-    {
-        title: "Frontend Enthusiast",
-        description:
-            "While I have experience in backend development, my true passion lies in creating seamless and engaging user interfaces.",
-    },
-    {
-        title: "Freelance & Personal Projects",
-        description:
-            "Most of my experience comes from working on my own projects and freelancing, constantly pushing myself to improve and build better applications.",
-    },
-];
+    ["about_card_1", "about_card_1_desc"],
+    ["about_card_2", "about_card_2_desc"],
+    ["about_card_3", "about_card_3_desc"],
+    ["about_card_4", "about_card_4_desc"],
+] as [string, string][];
 
 export default function AboutSection() {
+    const { translate } = useLanguage();
     return (
         <div
             className="w-full min-h-[calc(100vh/2)] relative border-t-2 border-dashed gap-10 border-zinc-700 flex flex-col items-center justify-center bg-zinc-950 py-10"
@@ -39,7 +25,7 @@ export default function AboutSection() {
                 } as React.CSSProperties
             }
         >
-            <h1 className="text-white font-black uppercase opacity-40 text-7xl text-center">About Me</h1>
+            <h1 className="text-white font-black uppercase opacity-40 text-7xl text-center max-sm:text-4xl">{translate("about_me")}</h1>
             <div className="flex flex-col items-center justify-center">
                 <Cards cardsData={cardsData} />
             </div>
