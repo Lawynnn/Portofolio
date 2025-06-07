@@ -34,7 +34,7 @@ export default function TypeRacer() {
 
             <Link
                 className="flex flex-row gap-3 px-4 py-4 rounded-2xl bg-white/10 border border-white/10 transition-colors duration-150 hover:bg-white/20 hover:border-white/20"
-                href="#type-racer"
+                href="https://github.com/Lawynnn/TypeRacerRebuild_Backend"
             >
                 <Github /> Check the project on Github
             </Link>
