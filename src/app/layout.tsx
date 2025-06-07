@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { ImagePreviewProvider } from "@/context/imagePreviewContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LanguageProvider } from "@/context/languageContext";
+import { TransitionProvider } from "@/context/transitionContext";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -38,16 +39,18 @@ export default function RootLayout({
                 className={`${poppins.variable} ${lexend.variable} antialiased bg-zinc-950 text-white`}
             >
                 <SpeedInsights />
-                <LanguageProvider>
-                    <ThemeProvider>
-                        <ImagePreviewProvider>
-                            <main className="min-w-full min-h-screen">
-                                {children}
-                            </main>
-                            <Footer />
-                        </ImagePreviewProvider>
-                    </ThemeProvider>
-                </LanguageProvider>
+                <TransitionProvider>
+                    <LanguageProvider>
+                        <ThemeProvider>
+                            <ImagePreviewProvider>
+                                <main className="min-w-full min-h-screen">
+                                    {children}
+                                </main>
+                                <Footer />
+                            </ImagePreviewProvider>
+                        </ThemeProvider>
+                    </LanguageProvider>
+                </TransitionProvider>
             </body>
         </html>
     );

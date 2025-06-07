@@ -5,10 +5,9 @@ import AboutSection from "@/components/sections/about";
 import ContactSection from "@/components/sections/contact";
 import MainSection from "@/components/sections/main";
 import ProjectsSection from "@/components/sections/projects";
-import { useTheme } from "@/context/themeContext";
+import React from "react";
 
 export default function Home() {
-    const { theme, setTheme } = useTheme();
     return (
         <>
             <Navbar />

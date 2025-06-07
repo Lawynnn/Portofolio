@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import translationsData from "@/data/translations";
+import { useTransition } from "./transitionContext";
 
 const validLanguages: string[] = ["en", "ro"];
 export type LanguageListType = (typeof validLanguages)[number];
@@ -15,6 +16,7 @@ export const LanguageProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
     const [lang, setLang] = React.useState<LanguageListType>("en");
+    const { inTransition, showTransition } = useTransition();
 
     React.useEffect(() => {
         const storedLang = globalThis.window.localStorage.getItem("language") as LanguageListType;
@@ -27,7 +29,12 @@ export const LanguageProvider: React.FC<{
     }, []);
 
     const setLanguage = (lang: LanguageListType) => {
-        setLang(lang);
+        showTransition(500, () => {
+            if (inTransition) {
+                return;
+            }
+            setLang(lang);
+        });
         globalThis.window.localStorage.setItem("language", lang);
     };
 
