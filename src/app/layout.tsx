@@ -7,6 +7,7 @@ import { ImagePreviewProvider } from "@/context/imagePreviewContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LanguageProvider } from "@/context/languageContext";
 import { TransitionProvider } from "@/context/transitionContext";
+import CustomScrollbar from "@/components/customScrollbar";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -43,6 +44,7 @@ export default function RootLayout({
                     <LanguageProvider>
                         <ThemeProvider>
                             <ImagePreviewProvider>
+                                <CustomScrollbar />
                                 <main className="min-w-full min-h-screen">
                                     {children}
                                 </main>
@@ -55,3 +57,4 @@ export default function RootLayout({
         </html>
     );
 }
+

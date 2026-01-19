@@ -3,7 +3,7 @@ import React from "react";
 import translationsData from "@/data/translations";
 import { useTransition } from "./transitionContext";
 
-const validLanguages: string[] = ["en", "ro"];
+const validLanguages: string[] = ["en", "ro", "it", "de"];
 export type LanguageListType = (typeof validLanguages)[number];
 type LanguageContextType = {
     setLanguage: (lang: LanguageListType) => void;
@@ -48,14 +48,14 @@ export const LanguageProvider: React.FC<{
         }
 
         const t = translationsData[lang];
-        if(!t) {
+        if (!t) {
             return key;
         }
 
         if (key in t) {
             return t[key];
         }
-        
+
         return key;
     };
 
